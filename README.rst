@@ -10,7 +10,7 @@ Note
 ----
 This is a preliminary release and the Actionscript API is currently 
 not yet complete so there's massive room
-for improvement. It is mainly a byproduct of the ARWave 
+for improvement (release early...). It is mainly a byproduct of the ARWave 
 (http://code.google.com/p/arwave/) effort, but might be useful for anyone who
 wants to access PyGowWave from Flash/Flex.
 
@@ -32,10 +32,7 @@ Note that this is just a library, not a working application.
 
 Dependencies
 ------------
-You will need Flex 3.4 or later.
-
-The project itslef has been created using Flash Builder 4 beta 2 but
-any Flex SDK should work.
+You will need Flex SDK 3.4 or later.
 
 The as3-stomp library is required to use this API. It is available at
 http://as3-stomp.googlecode.com/svn/trunk/
