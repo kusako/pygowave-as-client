@@ -8,8 +8,10 @@ Project Lead/Maintainer:
 
 Note
 ----
-The Actionscript API is currently not yet complete. It is mainly a 
-byproduct of the ARWave effort, but might be useful for anyone who
+This is a preliminary release and the Actionscript API is currently 
+not yet complete so there's massive room
+for improvement. It is mainly a byproduct of the ARWave 
+(http://code.google.com/p/arwave/) effort, but might be useful for anyone who
 wants to access PyGowWave from Flash/Flex.
 
 Install
@@ -36,7 +38,7 @@ The project itslef has been created using Flash Builder 4 beta 2 but
 any Flex SDK should work.
 
 The as3-stomp library is required to use this API. It is available at
-http://code.google.com/p/as3-stomp/
+http://as3-stomp.googlecode.com/svn/trunk/
 
-as3corelib is reuqired to se this API. It is available at
+as3corelib is required to se this API. It is available at
 http://code.google.com/p/as3corelib/

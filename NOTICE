@@ -6,3 +6,7 @@ and documentation by Google Inc.
 
 This software contains code derived from the PyGoWave Desktop Client
 Copyright 2009 Patrick Schneider <patrick.p2k.schneider@gmail.com>
+
+This software depends on as3-stomp available from 
+http://code.google.com/p/as3-stomp/ licensed under the Apache License 2.0
+
