@@ -4,12 +4,13 @@ Installing PyGoWave Actionscript API
 The API requires Adobe Flex 3.4 or greater, the Flex project has been created
 using Flash Builder 4.0 beta 2.
  
-First, make sure you have as3corelib.swc and Stomp_06.swc in your build path
+First, make sure you have as3corelib.swc in your build path
 (the Flex Project expects them in lib/).
+The check out http://as3-stomp.googlecode.com/svn/trunk/ (the Flex Project
+expects the source in external-src).
  
 Use Import existing project in Flash Builder 4 or use the build process of
 your SDK.
 
 Please report problems to:
   http://github.com/kusako/pygowave-as-clientapi/issues
- 
