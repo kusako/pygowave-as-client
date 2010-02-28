@@ -9,7 +9,7 @@ Project Lead/Maintainer:
 Note
 ----
 This is a preliminary release and the Actionscript API is currently 
-not yet complete so there's massive room
+not still very much work in progress. So there is massive room
 for improvement (release early...). It is mainly a byproduct of the ARWave 
 (http://code.google.com/p/arwave/) effort, but might be useful for anyone who
 wants to access PyGowWave from Flash/Flex.
