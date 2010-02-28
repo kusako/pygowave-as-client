@@ -4,7 +4,7 @@ PyGoWave Actionscript API
 Website: http://github.com/kusako/pygowave-as-clientapi
 
 Project Lead/Maintainer:
-  Markus Strickler <markus.strickler@googlemail.com>
+  Markus Strickler <markus.strickler at googlemail dot com>
 
 Note
 ----
