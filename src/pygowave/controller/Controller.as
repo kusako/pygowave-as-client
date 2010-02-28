@@ -23,6 +23,8 @@ package pygowave.controller
 	import com.adobe.utils.ArrayUtil;
 	
 	import flash.events.Event;
+	import flash.events.EventDispatcher;
+	import flash.events.IOErrorEvent;
 	import flash.events.TimerEvent;
 	import flash.utils.Dictionary;
 	import flash.utils.Timer;
@@ -33,6 +35,7 @@ package pygowave.controller
 	import org.codehaus.stomp.Stomp;
 	import org.codehaus.stomp.event.ConnectedEvent;
 	import org.codehaus.stomp.event.MessageEvent;
+	import org.codehaus.stomp.event.ReconnectFailedEvent;
 	import org.codehaus.stomp.event.STOMPErrorEvent;
 	import org.codehaus.stomp.headers.ConnectHeaders;
 	import org.codehaus.stomp.headers.SendHeaders;
@@ -49,7 +52,7 @@ package pygowave.controller
 	import pygowave.operations.OpManager;
 	import pygowave.operations.Operation;
 
-	public class Controller implements IParticipantProvider
+	public class Controller extends EventDispatcher implements IParticipantProvider
 	{
 		[Bindable]
 		public var state:String = 'disconnected';
@@ -95,6 +98,8 @@ package pygowave.controller
 			this.conn.addEventListener(ConnectedEvent.CONNECTED, conn_socketConnected);
 			this.conn.addEventListener(MessageEvent.MESSAGE, conn_messageReceived);
 			this.conn.addEventListener(STOMPErrorEvent.ERROR, conn_socketError);
+			this.conn.addEventListener(IOErrorEvent.IO_ERROR, conn_ioError);
+			this.conn.addEventListener(ReconnectFailedEvent.RECONNECT_FAILED, conn_reconectFailed);
 			this.pingTimer.addEventListener(TimerEvent.TIMER, pingTimer_timeout);
 			this.pendingTimer.addEventListener(TimerEvent.TIMER, pendingTimer_timeout);
 			
@@ -116,6 +121,8 @@ package pygowave.controller
 			var ch:ConnectHeaders = new ConnectHeaders();
 			ch.login = this.stompUsername;
 			ch.passcode = this.stompPassword;
+			this.conn.autoReconnect = false;
+			this.state = 'connecting';
 			this.conn.connect(this.stompServer, this.stompPort, ch);
 		}
 		
@@ -218,7 +225,7 @@ package pygowave.controller
 		private function conn_messageReceived(event:MessageEvent):void
 		{
 			var msgs:Array;
-			
+			trace('Message received: ' + event.message);
 			if (this.state == 'connected')
 			{
 				msgs = JSON.decode(event.message.body.toString());	
@@ -307,6 +314,17 @@ package pygowave.controller
 			trace("Error: " + event.error.body);				
 		}
 
+		public function conn_ioError(event:IOErrorEvent):void
+		{
+			trace("IOError: " + event.text);
+			this.state = 'disconnected';
+		}
+		
+		public function conn_reconectFailed(event:ReconnectFailedEvent):void
+		{
+			trace("ReconnectFailed.");
+		}
+		
 		public function wave(id:String):WaveModel
 		{
 			if (this.allWaves.hasOwnProperty(id))

@@ -10,7 +10,9 @@
       </libraryPathEntry>
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
     </libraryPath>
-    <sourceAttachmentPath/>
+    <sourceAttachmentPath>
+      <sourceAttachmentPathEntry kind="3" linkType="1" path="/Users/markuss/Code/arwave/pygowave-as-api/libs/Stomp_06.swc" sourcepath="/Users/markuss/Code/arwave/as3-stomp-read-only" useDefaultLinkType="false"/>
+    </sourceAttachmentPath>
   </compiler>
   <applications>
     <application path="pygowave-api.as"/>
