@@ -388,6 +388,7 @@ package pygowave.controller
 			sh.addHeader('exchange', 'wavelet.topic');
 			sh.addHeader('routing_key', destination);
 			sh.addHeader('content-type', 'application/json');
+			sh.addHeader('content-encoding', 'utf-8');
 			var message:String = JSON.encode(obj);
 			trace('Sending message: ' + message);
 			///if (dest != "login") qDebug("Controller: Sending to %s:\n%s", frame.destination().constData(), qPrintable(frame.body()));
